@@ -165,9 +165,9 @@ def send_vaccination_notifications():
                         
                         place_dict = model_to_dict(place, exclude=["vaccine"])  
                         places.append( place_dict )
-                        
-                vaccine_dict['places'] = places
-                upcoming_vaccinations.append(vaccine_dict)
+                if places:  
+                    vaccine_dict['places'] = places
+                    upcoming_vaccinations.append(vaccine_dict)
             print(upcoming_vaccinations,"***********")
 
             if upcoming_vaccinations:
