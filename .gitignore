@@ -1,0 +1,18 @@
+# Ignore all directories with Django projects
+# **/db.sqlite3
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/__pycache__/
+**/.env
+**/.vscode/
+**/.idea/
+**/.vs/
+**/.venv/
+**/.mypy_cache/
+**/.pytest_cache/
+**/venv/
+/*.bak
+/*.dat
+/*.dir

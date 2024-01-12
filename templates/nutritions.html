@@ -1,0 +1,45 @@
+{% load static %}
+<html>
+<head>
+</head>
+<body>
+<h1 style="color: #29a9f5; text-align: center; font-size: 2em; margin-bottom: 20px;">पौष्टिक आहार</h1>
+<center>
+    <img src="cid:image1" alt="Description of image" style="width: 200px; height: auto; margin-bottom: 20px; display: block; margin: auto;">
+</center>
+
+<h2 style="text-align: center; color: #fff; font-size: 1.5em; margin-bottom: 20px; background-color: #4CAF50; width: 80%; margin: 3rem auto; padding: 8px;">Nutrition Recommendations for your child: <strong> {{child_name}} </strong></h2>
+<table style="border-collapse: collapse; width: 80%; margin: 0 auto; border: 1px solid #ddd;">
+
+  {% for nutrition in rec_nutrition %}
+    <tr>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: center; font-size: xx-large;">{{ nutrition.name }}</td>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: center; font-size: xx-large;">
+        <img src="{% if nutrition.url_for_image %}{{ nutrition.url_for_image }}{% else %}{{nutrition.image}}{% endif %}" alt="Description of image" style="width: 200px; height: auto; margin-bottom: 20px; display: block; margin: auto;">
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="2" style="border: 1px solid #ddd; padding: 8px; text-align: center; font-size: xx-large;">No Recommendations for now.</td>
+    </tr>
+    {% endfor %}
+</table>
+<h2 style="text-align: center; color: #fff; font-size: 1.5em; margin-bottom: 20px; background-color: #4CAF50; width: 80%; margin: 3rem auto; padding: 8px;">Vaccine Recommendations for your child: <strong> {{child_name}} </strong></h2>
+<table style="border-collapse: collapse; width: 80%; margin: 0 auto; border: 1px solid #ddd;">
+
+  {% for vaccine in rec_vaccination %}
+    <tr>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: center; font-size: xx-large;">{{ vaccine.name }}</td>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: center; font-size: xx-large;">
+        <img src="{% if vaccine.url_for_image %}{{ vaccine.url_for_image }}{% else %}{{vaccine.image}}{% endif %}" alt="Description of image" style="width: 200px; height: auto; margin-bottom: 20px; display: block; margin: auto;">
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="2" style="border: 1px solid #ddd; padding: 8px; text-align: center; font-size: xx-large;">No Recommendations for now.</td>
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+
+
+
+{% load static %}
+<html>
+<head>
+</head>
+<body>
+<h1 style="color: #29a9f5; text-align: center; font-size: 2em; margin-bottom: 20px;">खोप</h1>
+<center>
+    <img src="cid:image1" alt="Description of image" style="width: 200px; height: auto; margin-bottom: 20px;">
+</center>
+
+{% for vaccine in vaccines %}
+<h2 style="text-align: center; color: #29a9f5; font-size: 1.5em; margin-bottom: 20px;">{{ vaccine.name }} Vaccination details for your child.  </h2>
+
+<p style="text-align: center; color: #29a9f5; font-size: 1.2em; margin-bottom: 20px;">
+    Description: {{ vaccine.description }}<br>
+    Minimum Age: {{ vaccine.min_age }} {{ vaccine.age_unit }}<br>
+    Maximum Age: {{ vaccine.max_age }} {{ vaccine.age_unit }}
+</p>
+
+<table style="border-collapse: collapse; width: 80%; margin: 0 auto; border: 1px solid #ddd;">
+    <tr style="background-color: #4CAF50; color: white;">
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; font-size: xx-large;">Place</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; font-size: xx-large;">Starting Time</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; font-size: xx-large;">Ending Time</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left; font-size: xx-large;">Vaccination Date</th>
+    </tr>
+  
+    {% for place in vaccine.places %}
+    <tr>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: left; font-size: xx-large;">
+            <a href="{{ place.map_url }}" style="color: #29a9f5;">{{ place.address }}</a>
+        </td>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: left; font-size: xx-large;">{{ place.starting_time }}</td>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: left; font-size: xx-large;">{{ place.ending_time }}</td>
+        <td style="border: 1px solid #ddd; padding: 8px; text-align: left; font-size: xx-large;">{{ place.vaccination_date }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endfor %}
+</body>
+</html>
