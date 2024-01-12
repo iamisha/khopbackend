@@ -12,13 +12,13 @@ app.conf.beat_schedule = {
     'send-recommendation-to-parents': {
         'task': 'recommendation.tasks.send_recommendation_to_parents',
         # 'schedule': crontab(day_of_week='sunday', hour=6, minute=0),  
-        'schedule': crontab(minute="*/3"),  
-        # "schedule": crontab(hour=7, minute=59),
+        # 'schedule': crontab(minute="*/3"),  
+        "schedule": crontab(hour=7, minute=59),
     },
     'send-vaccine-reminder': {
         "task": "recommendation.tasks.send_vaccination_notifications",
-        # "schedule": crontab(hour=7, minute=59),
-        'schedule': crontab(minute="*/3"),  
+        "schedule": crontab(hour=7, minute=59),
+        # 'schedule': crontab(minute="*/3"),  
 
     },
 }
